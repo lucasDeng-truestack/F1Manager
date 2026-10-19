@@ -1,0 +1,9 @@
+{
+  "skillOverrides": {
+    "ui-ux-pro-max": "on",
+    "ui-styling": "on",
+    "frontend-design": "on",
+    "design-system": "on",
+    "design": "on"
+  }
+}
