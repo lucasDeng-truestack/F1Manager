@@ -17,7 +17,7 @@ components.
 2. Tokens are semantic (`--color-surface`, `--color-text-muted`, `--color-tyre-soft`,
    `--color-radio-engineer`, `--color-radio-driver`, `--color-ptt-live`), not literal
    (`--red`).
-3. Placeholder look: retro/pixel (a pixel font from Google Fonts, hard edges, scanline-free).
+3. Placeholder look: retro/pixel (a pixel font self-hosted via @fontsource, hard edges, scanline-free).
    Plain CSS or CSS modules only. Don't add a UI library or Tailwind.
 
 ## Layout (race screen)

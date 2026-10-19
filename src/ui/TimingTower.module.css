@@ -1,0 +1,107 @@
+.tower {
+  container: tower / inline-size;
+  background: var(--color-surface);
+  border: var(--border-w) solid var(--color-border);
+  min-inline-size: 0;
+}
+
+.title {
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border-block-end: var(--border-w) solid var(--color-border);
+}
+
+.table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.table td {
+  padding: var(--space-1) var(--space-2);
+  border-block-end: var(--border-w) solid var(--color-bg);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.player td {
+  background: var(--color-player-row);
+}
+
+.player .code {
+  color: var(--color-player);
+}
+
+.player .pos {
+  box-shadow: inset var(--border-w-thick) 0 0 var(--color-player);
+}
+
+.pos {
+  inline-size: 0;
+  text-align: end;
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+}
+
+.code {
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--tracking-wide);
+}
+
+.gap {
+  text-align: end;
+  color: var(--color-text-muted);
+}
+
+.tyre {
+  inline-size: 0;
+}
+
+.wear {
+  text-align: end;
+  color: var(--color-text-muted);
+}
+
+.flagCell {
+  inline-size: 0;
+  text-align: end;
+}
+
+.flag {
+  display: inline-block;
+  padding: 0 var(--space-1);
+  font-family: var(--font-display);
+  font-size: var(--fs-2xs);
+  border: var(--border-w) solid currentColor;
+}
+
+.fin {
+  color: var(--color-text);
+}
+
+.pit {
+  color: var(--color-warning);
+}
+
+.box {
+  color: var(--color-accent);
+}
+
+.danger {
+  color: var(--color-danger);
+}
+
+/* The tower sits in a narrow column at desktop width too; interval goes first. */
+@container tower (max-width: 24rem) {
+  .interval { display: none; }
+}
+
+@media (max-width: 30rem) {
+  .interval { display: none; }
+}

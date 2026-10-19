@@ -1,0 +1,62 @@
+.panel {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface);
+  border: var(--border-w) solid var(--color-border);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.row {
+  min-block-size: var(--chip-size);
+}
+
+.loading {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.progress {
+  appearance: none;
+  inline-size: 100%;
+  block-size: var(--wear-bar-h);
+  border: var(--border-w) solid var(--color-border);
+  background: var(--color-wear-track);
+}
+
+.progress::-webkit-progress-bar {
+  background: var(--color-wear-track);
+}
+
+.progress::-webkit-progress-value {
+  background: var(--color-radio-engineer);
+}
+
+.progress::-moz-progress-bar {
+  background: var(--color-radio-engineer);
+}
+
+.muted {
+  color: var(--color-text-muted);
+}
+
+.error {
+  color: var(--color-warning);
+}
+
+.okDot {
+  display: inline-block;
+  inline-size: var(--space-2);
+  block-size: var(--space-2);
+  margin-inline-end: var(--space-2);
+  background: var(--color-gain);
+  vertical-align: middle;
+}

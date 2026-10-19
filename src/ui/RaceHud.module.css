@@ -1,0 +1,112 @@
+.hud {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface);
+  border: var(--border-w) solid var(--color-border);
+}
+
+.race,
+.car {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-5);
+  margin: 0;
+}
+
+.cell {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.cell dd {
+  margin: 0;
+}
+
+.k {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+.v {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-lg);
+  line-height: var(--lh-tight);
+}
+
+.lap {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+}
+
+.tyre {
+  min-inline-size: calc(var(--chip-size) * 6);
+}
+
+.bar {
+  display: block;
+}
+
+.age {
+  color: var(--color-text-muted);
+  font-size: var(--fs-md);
+}
+
+.critical {
+  color: var(--color-wear-critical);
+}
+
+.flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--fs-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  border: var(--border-w) solid var(--color-border);
+  color: var(--color-text);
+}
+
+.rain {
+  border-color: var(--color-rain);
+  color: var(--color-rain);
+}
+
+.sc {
+  background: var(--color-safety-car);
+  border-color: var(--color-safety-car);
+  color: var(--color-text-inverse);
+  animation: flash var(--dur-pulse) var(--ease-step) infinite;
+}
+
+.pit {
+  border-color: var(--color-warning);
+  color: var(--color-warning);
+}
+
+.box {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+.danger {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+@keyframes flash {
+  50% { opacity: var(--opacity-dim); }
+}

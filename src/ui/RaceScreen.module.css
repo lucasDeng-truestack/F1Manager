@@ -1,0 +1,118 @@
+.screen {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--gutter);
+  max-inline-size: var(--content-max);
+  margin-inline: auto;
+  min-block-size: 100vh;
+  grid-template-columns: var(--tower-width) minmax(0, 1fr) var(--side-width);
+  grid-template-rows: auto minmax(var(--canvas-min-h), 1fr) auto;
+  grid-template-areas:
+    'hud hud hud'
+    'tower track side'
+    'tower controls side';
+}
+
+.hud { grid-area: hud; }
+.tower { grid-area: tower; min-inline-size: 0; }
+.track { grid-area: track; position: relative; min-inline-size: 0; }
+.side {
+  grid-area: side;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-inline-size: 0;
+}
+.controls {
+  grid-area: controls;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.waiting {
+  color: var(--color-text-muted);
+}
+
+.flag {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: repeating-conic-gradient(var(--color-flag-dark) 0 25%, var(--color-flag-light) 0 50%) 0 0 / calc(var(--space-6) * 2) calc(var(--space-6) * 2);
+  animation: wave var(--dur-med) var(--ease-step) both;
+}
+
+.flagCard {
+  display: grid;
+  gap: var(--space-2);
+  justify-items: center;
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border: var(--border-w-thick) solid var(--color-shadow);
+  box-shadow: var(--shadow-hard);
+  text-align: center;
+}
+
+.flagTitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+}
+
+.flagPos {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  color: var(--color-player);
+}
+
+.flagSub {
+  color: var(--color-text-muted);
+}
+
+@keyframes wave {
+  from { opacity: 0; }
+}
+
+/* Tablet: radio drops under the track. */
+@media (max-width: 75rem) {
+  .screen {
+    grid-template-columns: var(--tower-width) minmax(0, 1fr);
+    grid-template-rows: auto minmax(var(--canvas-min-h), 1fr) auto auto;
+    grid-template-areas:
+      'hud hud'
+      'tower track'
+      'tower controls'
+      'side side';
+  }
+}
+
+/* Phone: one column, the call buttons stay pinned to the bottom of the screen. */
+@media (max-width: 48rem) {
+  .screen {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    grid-template-areas:
+      'hud'
+      'track'
+      'side'
+      'tower'
+      'controls';
+    padding-block-end: 0;
+  }
+
+  .track {
+    block-size: var(--canvas-min-h);
+  }
+
+  .controls {
+    position: sticky;
+    inset-block-end: 0;
+    padding-block: var(--space-2);
+    background: var(--color-bg);
+    border-block-start: var(--border-w) solid var(--color-border);
+  }
+
+  .hints {
+    display: none;
+  }
+}

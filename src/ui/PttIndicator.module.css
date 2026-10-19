@@ -1,0 +1,88 @@
+.root {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface);
+  border: var(--border-w) solid var(--color-border);
+}
+
+.lamp {
+  flex: none;
+  inline-size: var(--chip-size);
+  block-size: var(--chip-size);
+  border-radius: var(--radius-pill);
+  background: var(--color-ptt-off);
+  border: var(--border-w) solid var(--color-shadow);
+  transition: background var(--dur-fast) linear, box-shadow var(--dur-fast) linear;
+}
+
+.text {
+  display: grid;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--tracking-wide);
+}
+
+.hint {
+  color: var(--color-text-muted);
+}
+
+.live {
+  border-color: var(--color-ptt-live);
+}
+
+.live .lamp {
+  background: var(--color-ptt-live);
+  box-shadow: var(--glow-ptt-live);
+}
+
+.live .label {
+  color: var(--color-ptt-live);
+}
+
+.thinking .lamp {
+  background: var(--color-ptt-thinking);
+  animation: blink var(--dur-pulse) var(--ease-step) infinite;
+}
+
+.thinking .label {
+  color: var(--color-ptt-thinking);
+}
+
+.disabled {
+  opacity: var(--opacity-disabled);
+}
+
+.disabled .lamp {
+  background: transparent;
+  border-color: var(--color-ptt-off);
+}
+
+@keyframes blink {
+  50% { opacity: var(--opacity-dim); }
+}
+
+.notice {
+  margin: 0;
+  padding: var(--space-1) var(--space-3);
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: var(--border-w) solid var(--color-danger);
+  line-height: var(--lh-body);
+}
+
+.noticeLabel {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xs);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-danger);
+}

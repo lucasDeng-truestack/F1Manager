@@ -1,0 +1,209 @@
+/*
+ * BOX BOX! design tokens. Every colour, font, size, radius, spacing and motion value the UI
+ * uses lives here; components reference var(--…) only. Reskin by editing this file alone.
+ * Direction: a pit-wall telemetry monitor — slate-teal steel, phosphor text, hard pixel edges.
+ */
+:root {
+  /* ---- Palette (primitives: only referenced below in this file) ---- */
+  --p-steel-900: #0f1c24;
+  --p-steel-800: #142630;
+  --p-steel-700: #1a313d;
+  --p-steel-600: #22404f;
+  --p-steel-500: #2f5568;
+  --p-steel-300: #7f9ea9;
+  --p-phosphor: #e6f2e4;
+  --p-black: #070d11;
+  --p-team: #ff7a1a;
+  --p-cyan: #5ad7e8;
+  --p-sand: #ffd38f;
+  --p-red: #ff3b3b;
+  --p-red-dim: #5a1717;
+  --p-yellow: #ffd400;
+  --p-white: #f4f4f0;
+  --p-green: #46d77a;
+  --p-blue-wet: #3a6f8f;
+
+  /* ---- Surfaces & text ---- */
+  --color-bg: var(--p-steel-900);
+  --color-surface: var(--p-steel-800);
+  --color-surface-raised: var(--p-steel-700);
+  --color-surface-hover: var(--p-steel-600);
+  --color-border: var(--p-steel-500);
+  --color-shadow: var(--p-black);
+  --color-text: var(--p-phosphor);
+  --color-text-muted: var(--p-steel-300);
+  --color-text-inverse: var(--p-black);
+  --color-focus: var(--p-cyan);
+
+  /* ---- Semantic accents ---- */
+  --color-player: var(--p-team);
+  --color-player-row: color-mix(in srgb, var(--p-team) 18%, transparent);
+  --color-accent: var(--p-team);
+  --color-gain: var(--p-green);
+  --color-loss: var(--p-red);
+  --color-warning: var(--p-yellow);
+  --color-danger: var(--p-red);
+  --color-safety-car: var(--p-yellow);
+  --color-rain: var(--p-cyan);
+  --color-flag-light: var(--p-white);
+  --color-flag-dark: var(--p-black);
+
+  /* ---- Tyres ---- */
+  --color-tyre-soft: var(--p-red);
+  --color-tyre-medium: var(--p-yellow);
+  --color-tyre-hard: var(--p-white);
+  --color-tyre-inter: var(--p-green);
+  --color-wear-ok: var(--p-green);
+  --color-wear-warn: var(--p-yellow);
+  --color-wear-critical: var(--p-red);
+  --color-wear-track: var(--p-steel-900);
+
+  /* ---- Radio / PTT ---- */
+  --color-radio-engineer: var(--p-cyan);
+  --color-radio-driver: var(--p-sand);
+  --color-ptt-off: var(--p-steel-500);
+  --color-ptt-live: var(--p-red);
+  --color-ptt-thinking: var(--p-yellow);
+  --color-start-light-on: var(--p-red);
+  --color-start-light-off: var(--p-red-dim);
+
+  /* ---- Canvas (read by TrackCanvas via getComputedStyle) ---- */
+  --canvas-bg: var(--p-steel-900);
+  --canvas-track: var(--p-steel-500);
+  --canvas-track-wet: var(--p-blue-wet);
+  --canvas-kerb: var(--p-steel-300);
+  --canvas-line: var(--p-white);
+  --canvas-car: var(--p-steel-300);
+  --canvas-car-player: var(--p-team);
+  --canvas-car-pit: var(--p-steel-500);
+  --canvas-label: var(--p-phosphor);
+  --canvas-sc: var(--p-yellow);
+  /* unitless canvas sizes in CSS px; scaled by DPR in code */
+  --canvas-track-width: 14;
+  --canvas-car-radius: 5;
+  --canvas-player-radius: 8;
+  --canvas-pit-offset: 18;
+  --canvas-label-size: 18;
+  --canvas-kerb-width: 4;      /* kerb stroke = track width + this */
+  --canvas-line-width: 3;      /* start/finish line stroke */
+  --canvas-line-overhang: 2;   /* start/finish line past each track edge */
+  --canvas-car-outline: 2;     /* car dot outline stroke */
+  --canvas-label-gap: 2;       /* player label gap from the dot */
+
+  /* ---- Type ---- */
+  --font-display: 'Press Start 2P', ui-monospace, monospace;
+  --font-data: 'VT323', ui-monospace, monospace;
+  --fs-2xs: 0.5rem;
+  --fs-xs: 0.625rem;
+  --fs-sm: 0.75rem;
+  --fs-md: 1.25rem;
+  --fs-lg: 1.5rem;
+  --fs-xl: 2rem;
+  --fs-hero: clamp(1.75rem, 7vw, 3.5rem);
+  --lh-tight: 1.1;
+  --lh-body: 1.25;
+  --tracking-wide: 0.08em;
+
+  /* ---- Space, size, shape ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2.5rem;
+  --gutter: 1rem;
+  --border-w: 2px;
+  --border-w-thick: 4px;
+  --radius: 0;
+  --radius-pill: 999px;
+  --shadow-hard: 4px 4px 0 var(--color-shadow);
+  --shadow-hard-sm: 2px 2px 0 var(--color-shadow);
+  --glow-ptt-live: 0 0 0 3px var(--color-ptt-live), 0 0 18px 4px var(--color-ptt-live);
+  --glow-light: 0 0 14px 2px var(--color-start-light-on);
+  --focus-ring: 0 0 0 3px var(--color-focus);
+  --wear-bar-h: 0.5rem;
+  --chip-size: 1.25rem;
+  --light-size: clamp(2rem, 9vw, 3.5rem);
+  --tower-width: 22rem;
+  --side-width: 22rem;
+  --content-max: 90rem;
+  --start-max: 40rem;
+  --canvas-min-h: 16rem;
+  --radio-max-h: 22rem;
+  --radio-max-h-mobile: 14rem;
+  --bp-mobile: 48rem; /* documentation only; media queries can't read vars */
+
+  --opacity-dim: 0.35;
+  --opacity-disabled: 0.5;
+  --opacity-pit-car: 0.55;
+
+  /* ---- Motion ---- */
+  --dur-fast: 120ms;
+  --dur-med: 300ms;
+  --dur-light-step: 220ms;
+  --dur-pulse: 900ms;
+  --ease-step: steps(2, end);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-data);
+  font-size: var(--fs-md);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: none;
+  overflow-x: hidden;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-med: 0ms;
+    --dur-light-step: 0ms;
+    --glow-ptt-live: 0 0 0 3px var(--color-ptt-live);
+    --glow-light: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

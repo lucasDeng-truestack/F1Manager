@@ -1,0 +1,37 @@
+.gantry {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--color-shadow);
+  border: var(--border-w) solid var(--color-border);
+  inline-size: fit-content;
+}
+
+.pod {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  background: var(--color-surface);
+  border: var(--border-w) solid var(--color-border);
+}
+
+.light {
+  inline-size: var(--light-size);
+  block-size: var(--light-size);
+  border-radius: var(--radius-pill);
+  background: var(--color-start-light-on);
+  box-shadow: var(--glow-light);
+  transition: background var(--dur-fast) linear, box-shadow var(--dur-fast) linear;
+}
+
+/* Lights out: each pod goes dark one step after the last. */
+.out .light {
+  background: var(--color-start-light-off);
+  box-shadow: none;
+}
+
+.out .pod:nth-child(2) .light { transition-delay: var(--dur-light-step); }
+.out .pod:nth-child(3) .light { transition-delay: calc(var(--dur-light-step) * 2); }
+.out .pod:nth-child(4) .light { transition-delay: calc(var(--dur-light-step) * 3); }
+.out .pod:nth-child(5) .light { transition-delay: calc(var(--dur-light-step) * 4); }
